@@ -59,7 +59,11 @@ List the functionality that your app will include. These can be written as user 
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
-> > In Image folder,"/Users/sopia/Desktop/sopia-lee-capstoneProject/Image/Low fidelity Mockup Mainpage .png"
+<!-- ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Mainpage- Add entries](https://github.com/SopiaLee/sopia-lee-capstoneProject/tree/main/Image/) -->
+
+![Alt text](<Image/Add Entries page (Mainpage)-1.png>)
 
 ### Data
 
