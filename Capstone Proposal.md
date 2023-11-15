@@ -59,11 +59,10 @@ List the functionality that your app will include. These can be written as user 
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
-<!-- ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
-
-![Mainpage- Add entries](https://github.com/SopiaLee/sopia-lee-capstoneProject/tree/main/Image/) -->
-
-![Alt text](<Image/Add Entries page (Mainpage)-1.png>)
+![Mainpage](<Image/Add Entries page (Mainpage)-1.png>)
+![Mainpage (after opening the note)](<Image/Add Entries page (Mainpage).png>)
+![After submitting the form](<Image/After Submitting the form.png>)
+![view Entries Page](<Image/View entries page.png>)
 
 ### Data
 
