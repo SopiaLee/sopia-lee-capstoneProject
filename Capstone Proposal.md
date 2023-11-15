@@ -53,10 +53,13 @@ List the functionality that your app will include. These can be written as user 
 
 1. Main page where users can submit daily form.
 2. Journal entries page where user can access previous entries from the form.
+3. About page that has information about the brand/ website information.
 
 ### Mockups
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
+
+> > In Image folder,"/Users/sopia/Desktop/sopia-lee-capstoneProject/Image/Low fidelity Mockup Mainpage .png"
 
 ### Data
 
@@ -68,9 +71,18 @@ The input from the forms will be added to Json file in backend server and it wil
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
-- users will be able to access the responsive website from desktop/mobile/tablet
+[HTTP methods]
 
-1.  User will add the inputs to forms they want to complete for the day (users can choose to play the relaxing background music while journaling).
+- using Get, users will get data from Background music and Quotes API/
+- using Post, user will be able to submit the form for gratitude journal & to-do list.
+- using Get, users will be able to access the data they input in JSON file (in journal entries page)
+
+[Parameters]
+
+- "I am greatful for..." > 1. , 2. , 3.
+- "What could make today great?" > 1., 2., 3., ....
+
+User will add the inputs to forms they want to complete for the day (users can choose to play the relaxing background music while journaling).
 
             [Example form format]
 
