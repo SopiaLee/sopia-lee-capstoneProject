@@ -1,8 +1,7 @@
 import "./ViewEntries.scss";
 // import { useNavigate } from "react-router-dom";
-// import axios from "axios";
 import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,9 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 function ViewEntries() {
   const [forms, setForms] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
-  //   //   const [selectedForm, setSelectedForm] = useState({});
+  const [selectedForm, setSelectedForm] = useState({});
 
-  //   //   const params = useParams();
+  const params = useParams();
 
   useEffect(() => {
     const getForms = async () => {
@@ -24,20 +23,20 @@ function ViewEntries() {
     getForms();
   }, []);
 
-  //   useEffect(() => {
-  //     let formsDate = "";
-  //     if (params.timestamp) {
-  //       formsDate = params.timestamp;
-  //     }
+  useEffect(() => {
+    let formId = "1";
+    if (params.id) {
+      formId = params.id;
+    }
 
-  //     const getSelectedForm = async () => {
-  //       const response = await axios.get(
-  //         `${process.env.REACT_APP_API_URL}/forms/${id}`
-  //       );
-  //       setSelectedForm(response.data);
-  //     };
-  //     getSelectedForm();
-  //   }, [params.timestamp]);
+    const getSelectedForm = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/forms/${formId}`
+      );
+      setSelectedForm(response.data);
+    };
+    getSelectedForm();
+  }, [params.id]);
 
   return (
     <>
@@ -57,42 +56,58 @@ function ViewEntries() {
 
               <form className="book__form">
                 <div className="book__right">
-                  <div className="bookright__date">2023, Nov 14th</div>
-                  <div className="bookright__question">
-                    I am greatful for ...
-                  </div>
-                  <div className="bookright__inputnumber">
-                    1. <div className="bookright__input"></div>
-                  </div>
-                  <div className="bookright__inputnumber">
-                    2. <div className="bookright__input"></div>
-                  </div>
-                  <div className="bookright__inputnumber">
-                    3. <div className="bookright__input"></div>
-                  </div>
+                  {forms
+                    .filter((form) => form.timestamp !== selectedForm.timestamp)
+                    .map((form) => {
+                      return (
+                        <>
+                          {selectedForm.id && (
+                            <>
+                              <div className="bookright__date">
+                                {selectedForm.timestamp}
+                              </div>
+                              <div className="bookright__question">
+                                I am greatful for ...
+                              </div>
 
-                  <div className="bookright__question">
-                    My goal for today is ...
-                  </div>
-                  <div className="bookright__inputnumber">
-                    1. <input className="bookright__input"></input>
-                  </div>
-                  <div className="bookright__inputnumber">
-                    2. <input className="bookright__input"></input>
-                  </div>
-                  <div className="bookright__inputnumber">
-                    3. <input className="bookright__input"></input>
-                  </div>
+                              <div className="bookright__input">
+                                1. {selectedForm.input1}
+                              </div>
 
-                  <div className="bookright__question">Meditation Record</div>
-                  <div className="bookright__dropdown">
-                    <label
-                      for="meditationTime"
-                      className="bookright__dropdownTitle"
-                    >
-                      Meditation Time{" "}
-                    </label>
-                  </div>
+                              <div className="bookright__input">
+                                2. {selectedForm.input2}
+                              </div>
+
+                              <div className="bookright__input">
+                                3. {selectedForm.input3}
+                              </div>
+
+                              <div className="bookright__question">
+                                My goal for today is ...
+                              </div>
+                              <div className="bookright__input">
+                                1. {selectedForm.input4}
+                              </div>
+
+                              <div className="bookright__input">
+                                2. {selectedForm.input5}
+                              </div>
+
+                              <div className="bookright__input">
+                                3. {selectedForm.input6}
+                              </div>
+
+                              <div className="bookright__dropdownTitle">
+                                Meditation Time
+                                <div className="bookright__dropdown">
+                                  {selectedForm.meditationTime}
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </>
+                      );
+                    })}
                 </div>
               </form>
             </div>
