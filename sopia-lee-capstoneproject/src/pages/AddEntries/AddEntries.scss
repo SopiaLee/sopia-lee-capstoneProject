@@ -54,12 +54,12 @@
         width: 50%;
         height: 100%;
     }
-        &__right {
-            width: 100%;
-            border-left: 1px solid red;
-            height: 100%;
-            padding-left: 24px;
-            position: relative;
-            left: -24px;
-        }
+    &__right {
+        width: 50%;
+        border-left: 1px solid red;
+        height: 100%;
+        padding-left: 24px;
+        position: relative;
+        left: -24px;
+    }
 }

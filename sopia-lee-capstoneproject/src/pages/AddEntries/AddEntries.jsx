@@ -33,7 +33,7 @@ function AddEntries() {
       <div className="book__heading">Good morning, Amanda!</div>
       <div className="book__cover">
         <div className="book__paper">
-          <div className="book_leftright">
+          <div className="book__leftright">
             <div className="book__left">
               <div className="bookleft__quotes">"QUOTES FOR TODAY"</div>
               <div className="bookleft__name">-Name-</div>

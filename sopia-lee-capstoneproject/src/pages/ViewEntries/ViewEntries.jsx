@@ -1,17 +1,34 @@
 import "./ViewEntries.scss";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import dayjs from "dayjs";
 
 function ViewEntries() {
   const [forms, setForms] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [selectedForm, setSelectedForm] = useState({});
-
+  const navigate = useNavigate();
   const params = useParams();
+
+  useEffect(() => {
+    console.log("startdate", startDate);
+
+    const filteredForms = forms?.find((form) => {
+      console.log("startdate", dayjs(new Date(startDate)).format("MM/DD/YYYY"));
+      console.log("form date", form.timestamp);
+      return dayjs(new Date(startDate)).format("MM/DD/YYYY") == form.timestamp;
+    });
+
+    filteredForms && navigate(`/viewentries/${filteredForms.id}`);
+
+    // forms.forEach((form) => console.log(new Date(form.timestamp)));
+
+    console.log(filteredForms);
+  }, [startDate]);
 
   useEffect(() => {
     const getForms = async () => {
@@ -45,9 +62,10 @@ function ViewEntries() {
           selected={startDate}
           onChange={(date) => setStartDate(date)}
         />
+        {new Date(startDate).toLocaleDateString()}
         <div className="book__cover">
           <div className="book__paper">
-            <div className="book_leftright">
+            <div className="book__leftright">
               <div className="book__left">
                 <div className="bookleft__quotes">"QUOTES FOR TODAY"</div>
                 <div className="bookleft__name">-Name-</div>
@@ -56,58 +74,62 @@ function ViewEntries() {
 
               <form className="book__form">
                 <div className="book__right">
-                  {forms
-                    .filter((form) => form.timestamp !== selectedForm.timestamp)
+                  {/* {forms
+                    .filter(
+                      (form) =>
+                        dayjs(new Date(startDate)).format("MM/DD/YYYY") ==
+                        form.timestamp
+                    )
                     .map((form) => {
                       return (
-                        <>
-                          {selectedForm.id && (
-                            <>
-                              <div className="bookright__date">
-                                {selectedForm.timestamp}
-                              </div>
-                              <div className="bookright__question">
-                                I am greatful for ...
-                              </div>
+                        <> */}
+                  {selectedForm.id && (
+                    <>
+                      <div className="bookright__date">
+                        {selectedForm.timestamp}
+                      </div>
+                      <div className="bookright__question">
+                        I am greatful for ...
+                      </div>
 
-                              <div className="bookright__input">
-                                1. {selectedForm.input1}
-                              </div>
+                      <div className="bookright__input">
+                        1. {selectedForm.input1}
+                      </div>
 
-                              <div className="bookright__input">
-                                2. {selectedForm.input2}
-                              </div>
+                      <div className="bookright__input">
+                        2. {selectedForm.input2}
+                      </div>
 
-                              <div className="bookright__input">
-                                3. {selectedForm.input3}
-                              </div>
+                      <div className="bookright__input">
+                        3. {selectedForm.input3}
+                      </div>
 
-                              <div className="bookright__question">
-                                My goal for today is ...
-                              </div>
-                              <div className="bookright__input">
-                                1. {selectedForm.input4}
-                              </div>
+                      <div className="bookright__question">
+                        My goal for today is ...
+                      </div>
+                      <div className="bookright__input">
+                        1. {selectedForm.input4}
+                      </div>
 
-                              <div className="bookright__input">
-                                2. {selectedForm.input5}
-                              </div>
+                      <div className="bookright__input">
+                        2. {selectedForm.input5}
+                      </div>
 
-                              <div className="bookright__input">
-                                3. {selectedForm.input6}
-                              </div>
+                      <div className="bookright__input">
+                        3. {selectedForm.input6}
+                      </div>
 
-                              <div className="bookright__dropdownTitle">
-                                Meditation Time
-                                <div className="bookright__dropdown">
-                                  {selectedForm.meditationTime}
-                                </div>
-                              </div>
-                            </>
-                          )}
-                        </>
+                      <div className="bookright__dropdownTitle">
+                        Meditation Time
+                        <div className="bookright__dropdown">
+                          {selectedForm.meditationTime}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                  {/* </>
                       );
-                    })}
+                    })} */}
                 </div>
               </form>
             </div>
