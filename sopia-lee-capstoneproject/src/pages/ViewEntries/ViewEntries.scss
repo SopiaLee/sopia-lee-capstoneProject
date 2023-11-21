@@ -1,0 +1,27 @@
+.react-datepicker-wrapper {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+.react-datepicker__triangle {
+    display: none;
+}
+.react-datepicker {
+    border: 3px solid #C4C1A4;
+}
+.react-datepicker__header {
+    border-bottom: 3px solid #C4C1A4;
+}
+.react-datepicker__day--selected {
+    background-color: #FFC6AC;
+}
+.react-datepicker__header {
+    background-color: white;
+}
+// .input[type="text" i]  {
+//     border: 3px solid #FFC6AC;
+//     border-radius: 4px;
+//     height: 24px;
+//     padding: 4px 10px 4px 10px;
+//     font-size: 20px;
+//     font-weight: 500;
+// }
