@@ -55,11 +55,82 @@
         height: 100%;
     }
     &__right {
-        width: 50%;
-        border-left: 1px solid red;
+        width: 100%;
+        border-left: 1px solid #C4C1A4;
         height: 100%;
         padding-left: 24px;
         position: relative;
-        left: -24px;
     }
 }
+
+.bookleft {
+    margin-left: auto;
+    margin-right: auto;
+
+    &__iframe {
+        width: 70%;
+        border-radius: 4px;
+    }
+    &__quotes {
+        padding: 100px 24px 24px 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    &__name {
+        padding-bottom: 100px;
+        text-align: center;
+        font-weight: 500;
+    }
+    &__musicPlayer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.bookright {
+    &__input {
+        width: 80%;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-bottom: 16px;
+    }
+    &__date {
+        width: 80%;
+        padding-top: 24px;
+        margin-bottom: 16px;
+        text-align: end;
+    }
+    &__question {
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    &__select {
+        width: 85%;
+        padding: 5px;
+        border: 1px solid black;
+        margin-bottom: 24px;
+    }
+    &__submitButton {
+        background-color: #FFC6AC;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        padding: 5px 10px 5px 10px;
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+
+       
+    }
+}
+// .mobilePrestitial{
+//     display: none !important; 
+// }
+// .g-background-default {
+//     background-color: #C4C1A4 !important;
+// }
+// .widget {
+//     border: 1px solid #C4C1A4 !important;
+// }

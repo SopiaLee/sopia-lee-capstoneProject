@@ -17,6 +17,18 @@
 .react-datepicker__header {
     background-color: white;
 }
+
+.bookright {
+    &__dropdownTitle {
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    &__dropdownResult {
+        font-weight: normal;
+        margin-top: 16px;
+    }
+}
+
 // .input[type="text" i]  {
 //     border: 3px solid #FFC6AC;
 //     border-radius: 4px;

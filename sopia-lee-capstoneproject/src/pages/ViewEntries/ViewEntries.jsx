@@ -13,21 +13,17 @@ function ViewEntries() {
   const [selectedForm, setSelectedForm] = useState({});
   const navigate = useNavigate();
   const params = useParams();
+  const [quotes, setQuotes] = useState([]);
+  const [selectedQuote, setSelectedQuote] = useState([]);
 
   useEffect(() => {
-    console.log("startdate", startDate);
-
     const filteredForms = forms?.find((form) => {
-      console.log("startdate", dayjs(new Date(startDate)).format("MM/DD/YYYY"));
-      console.log("form date", form.timestamp);
-      return dayjs(new Date(startDate)).format("MM/DD/YYYY") == form.timestamp;
+      //   console.log("startdate", dayjs(new Date(startDate)).format("MM/DD/YYYY"));
+      //   console.log("form date", form.timestamp);
+      return dayjs(new Date(startDate)).format("MM/DD/YYYY") === form.timestamp;
     });
 
     filteredForms && navigate(`/viewentries/${filteredForms.id}`);
-
-    // forms.forEach((form) => console.log(new Date(form.timestamp)));
-
-    console.log(filteredForms);
   }, [startDate]);
 
   useEffect(() => {
@@ -41,7 +37,7 @@ function ViewEntries() {
   }, []);
 
   useEffect(() => {
-    let formId = "1";
+    let formId = "a91a5827-9d90-47db-8a1e-10ac9ff3a59c";
     if (params.id) {
       formId = params.id;
     }
@@ -55,6 +51,22 @@ function ViewEntries() {
     getSelectedForm();
   }, [params.id]);
 
+  useEffect(() => {
+    console.log(quotes);
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setSelectedQuote(quotes[randomIndex]);
+  }, [quotes]);
+
+  useEffect(() => {
+    const getQuotes = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/quotes`
+      );
+      setQuotes(response.data);
+    };
+    getQuotes();
+  }, []);
+
   return (
     <>
       <div className="book__page">
@@ -62,27 +74,28 @@ function ViewEntries() {
           selected={startDate}
           onChange={(date) => setStartDate(date)}
         />
-        {new Date(startDate).toLocaleDateString()}
+        {/* {new Date(startDate).toLocaleDateString()} */}
         <div className="book__cover">
           <div className="book__paper">
             <div className="book__leftright">
               <div className="book__left">
-                <div className="bookleft__quotes">"QUOTES FOR TODAY"</div>
-                <div className="bookleft__name">-Name-</div>
-                <div className="bookleft__musicPlayer">Music Player</div>
+                <div className="bookleft__quotes">"{selectedQuote?.body}"</div>
+                <div className="bookleft__name">-{selectedQuote?.author}-</div>
+                <div className="bookleft__musicPlayer">
+                  <iframe
+                    className="bookleft__iframe"
+                    width="100%"
+                    height="166"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                  ></iframe>
+                </div>
               </div>
 
               <form className="book__form">
                 <div className="book__right">
-                  {/* {forms
-                    .filter(
-                      (form) =>
-                        dayjs(new Date(startDate)).format("MM/DD/YYYY") ==
-                        form.timestamp
-                    )
-                    .map((form) => {
-                      return (
-                        <> */}
                   {selectedForm.id && (
                     <>
                       <div className="bookright__date">
@@ -121,7 +134,7 @@ function ViewEntries() {
 
                       <div className="bookright__dropdownTitle">
                         Meditation Time
-                        <div className="bookright__dropdown">
+                        <div className="bookright__dropdownResult">
                           {selectedForm.meditationTime}
                         </div>
                       </div>
