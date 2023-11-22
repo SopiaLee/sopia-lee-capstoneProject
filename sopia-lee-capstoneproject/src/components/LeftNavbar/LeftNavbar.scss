@@ -1,3 +1,9 @@
+
+:visited {
+   color: inherit;
+  }
+
+
 .leftNavbar {
     background-color: #FFC6AC;
     width: 267px;
@@ -6,14 +12,36 @@
  &__option {
     text-decoration: none;
     font-size: 20px;
-    padding: 10px 15px 10px 15px;
-    width: 267px;
-    height: 30px;
+    font-weight: 500;
+    padding: 15px ;
+    max-width: 267px;
+    text-align: center;
+    
+    &.active {
+      // color: #000000;
+      // background-color: #FFF6DC;
+      // text-decoration: none;
+      div {
+         color: #000000;
+      background-color: #FFF6DC;
+      text-decoration: none;
+      }
+      // color: #000000;
+      // background-color: #FFF6DC;
+      // text-decoration: none;
+  }
+
+ 
+ }
+ &__logo {
+   width: 200px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+   margin-top: 24px
  }
 
- .active {
-    color: #000000;
-    background-color: #FFF6DC;
-    text-decoration: none;
-}
+ 
 }

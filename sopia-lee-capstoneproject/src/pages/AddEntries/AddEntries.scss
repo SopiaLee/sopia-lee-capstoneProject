@@ -1,4 +1,8 @@
 .book {
+    display: flex;
+    cursor: pointer;
+    perspective: 1000px;
+
     &__page {
         display: flex;
         flex-direction: column;
@@ -19,6 +23,8 @@
         margin-bottom: 24px;
         padding: 24px;
         border-radius: 12px;
+        box-shadow: #353755;
+        transform: rotateX(10deg);
     }
     &__paper{
         width: 100%;

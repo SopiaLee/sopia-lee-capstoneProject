@@ -27,6 +27,25 @@
         font-weight: normal;
         margin-top: 16px;
     }
+    &__inputview {
+        border-bottom: none;
+        padding-bottom: 16px;
+    }
+    &__questionview {
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+}
+
+.book {
+    &__datepicker {
+            padding: 4px 10px 4px 10px;
+            font-size: 18px;
+            font-weight: 600;
+            border: 3px solid #C4C1A4;
+            border-radius:4px;
+        
+    }
 }
 
 // .input[type="text" i]  {
