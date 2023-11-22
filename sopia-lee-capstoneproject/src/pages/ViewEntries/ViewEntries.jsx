@@ -11,7 +11,7 @@ function ViewEntries() {
   const [forms, setForms] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [selectedForm, setSelectedForm] = useState({});
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const params = useParams();
   const [quotes, setQuotes] = useState([]);
   const [selectedQuote, setSelectedQuote] = useState([]);
@@ -29,11 +29,17 @@ function ViewEntries() {
   useEffect(() => {
     let formDate = dayjs(startDate).format("MM-DD-YYYY");
     const getSelectedForm = async () => {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/forms/${formDate}`
-      );
-      setSelectedForm(response.data);
-      console.log("selected form", response.data);
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/forms/${formDate}`
+        );
+        setSelectedForm(response.data);
+        console.log("selected form", response.data);
+      } catch (err) {
+        console.log(err);
+        alert("ALERT: No entries on this date. Choose another date.");
+        // navigate("/notfound");
+      }
     };
     getSelectedForm();
   }, [startDate]);

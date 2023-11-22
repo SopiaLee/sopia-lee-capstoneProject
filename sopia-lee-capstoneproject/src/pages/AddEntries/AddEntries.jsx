@@ -49,7 +49,7 @@ function AddEntries() {
   return (
     <div className="book">
       <div className="book__page">
-        <div className="book__heading">Hi, Amanda!</div>
+        <div className="book__heading">Welcome!</div>
         <div className="book__cover">
           <div className="book__paper">
             <div className="book__leftright">

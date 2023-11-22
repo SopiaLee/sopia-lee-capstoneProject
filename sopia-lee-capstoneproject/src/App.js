@@ -6,6 +6,7 @@ import ViewEntries from "./pages/ViewEntries/ViewEntries";
 import Submitted from "./pages/Submitted/Submitted";
 import Aboutpage from "./pages/Aboutpage/Aboutpage";
 
+
 function App() {
   return (
     <BrowserRouter>
