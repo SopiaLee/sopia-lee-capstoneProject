@@ -1,0 +1,12 @@
+.book {
+    &__right2 {
+    float: right;
+        height: 100%;
+        border-left: 1px solid #C4C1A4;
+        padding-left: 24px;
+        position: relative;
+    }
+    &__left2 {
+        width: auto;
+    }
+}
