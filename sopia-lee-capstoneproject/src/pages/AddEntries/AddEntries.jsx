@@ -1,6 +1,4 @@
 import "./AddEntries.scss";
-// import React, { useState } from "react";
-// import DatePicker from "react-datepicker";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -32,7 +30,7 @@ function AddEntries() {
   }, []);
 
   function handleSubmitButton(event) {
-    console.log("submitted");
+    console.log("submitted", event.target);
     event.preventDefault();
 
     const response = axios.post(`${process.env.REACT_APP_API_URL}/forms`, {
@@ -45,115 +43,129 @@ function AddEntries() {
       meditationTime: event.target.meditationTime.value,
     });
     console.log(response);
-    navigate("/");
+    navigate("/submitted");
   }
 
   return (
-    <div className="book__page">
-      <div className="book__heading">Hi, Amanda!</div>
-      <div className="book__cover">
-        <div className="book__paper">
-          <div className="book__leftright">
-            <div className="book__left">
-              <div className="bookleft__quotes">"{selectedQuote?.body}"</div>
-              <div className="bookleft__name">-{selectedQuote?.author}-</div>
-              <div className="bookleft__musicPlayer">
-                <iframe
-                  className="bookleft__iframe"
-                  width="100%"
-                  height="166"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                ></iframe>
+    <div className="book">
+      <div className="book__page">
+        <div className="book__heading">Hi, Amanda!</div>
+        <div className="book__cover">
+          <div className="book__paper">
+            <div className="book__leftright">
+              <div className="book__left">
+                <div className="bookleft__quotes">"{selectedQuote?.body}"</div>
+                <div className="bookleft__name">-{selectedQuote?.author}-</div>
+                <div className="bookleft__musicPlayer">
+                  <iframe
+                    className="bookleft__iframe"
+                    width="100%"
+                    height="166"
+                    allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                  ></iframe>
+                </div>
               </div>
-            </div>
 
-            <form
-              className="book__form"
-              onSubmit={(event) => {
-                handleSubmitButton(event);
-              }}
-            >
-              <div className="book__right">
-                <div className="bookright__date">
-                  {dayjs().format("MM/DD/YYYY")}
-                </div>
-                <div className="bookright__question">I am greatful for ...</div>
-                <div className="bookright__inputnumber">
-                  1. <input className="bookright__input" name="input1"></input>
-                </div>
-                <div className="bookright__inputnumber">
-                  2. <input className="bookright__input" name="input2"></input>
-                </div>
-                <div className="bookright__inputnumber">
-                  3. <input className="bookright__input" name="input3"></input>
-                </div>
+              <form
+                className="book__form"
+                onSubmit={(event) => {
+                  handleSubmitButton(event);
+                }}
+              >
+                <div className="book__right">
+                  <div className="bookright__date">
+                    {dayjs().format("MM-DD-YYYY")}
+                  </div>
+                  <div className="bookright__question">
+                    I am greatful for ...
+                  </div>
+                  <div className="bookright__inputnumber">
+                    1.{" "}
+                    <input className="bookright__input" name="input1"></input>
+                  </div>
+                  <div className="bookright__inputnumber">
+                    2.{" "}
+                    <input className="bookright__input" name="input2"></input>
+                  </div>
+                  <div className="bookright__inputnumber">
+                    3.{" "}
+                    <input className="bookright__input" name="input3"></input>
+                  </div>
 
-                <div className="bookright__question">
-                  My goal for today is ...
-                </div>
-                <div className="bookright__inputnumber">
-                  1. <input className="bookright__input" name="input4"></input>
-                </div>
-                <div className="bookright__inputnumber">
-                  2. <input className="bookright__input" name="input5"></input>
-                </div>
-                <div className="bookright__inputnumber">
-                  3. <input className="bookright__input" name="input6"></input>
-                </div>
+                  <div className="bookright__question">
+                    My goal for today is ...
+                  </div>
+                  <div className="bookright__inputnumber">
+                    1.{" "}
+                    <input className="bookright__input" name="input4"></input>
+                  </div>
+                  <div className="bookright__inputnumber">
+                    2.{" "}
+                    <input className="bookright__input" name="input5"></input>
+                  </div>
+                  <div className="bookright__inputnumber">
+                    3.{" "}
+                    <input className="bookright__input" name="input6"></input>
+                  </div>
 
-                <div className="bookright__question">Meditation Record</div>
-                <div className="bookright__dropdown">
-                  <select
-                    name="meditationTime"
-                    id="meditationTime"
-                    className="bookright__select"
-                  >
-                    <option className="bookright__dropdownOptions" value="5min">
-                      5 minutes
-                    </option>
-                    <option
-                      className="bookright__dropdownOptions"
-                      value="10-15mins"
+                  <div className="bookright__question">Meditation Record</div>
+                  <div className="bookright__dropdown">
+                    <select
+                      name="meditationTime"
+                      id="meditationTime"
+                      className="bookright__select"
                     >
-                      10-15 minutes
-                    </option>
-                    <option
-                      className="bookright__dropdownOptions"
-                      value="15-30mins"
-                    >
-                      15-30 minutes
-                    </option>
-                    <option
-                      className="bookright__dropdownOptions"
-                      value="30-45mins"
-                    >
-                      30-45 minutes
-                    </option>
-                    <option
-                      className="bookright__dropdownOptions"
-                      value="45-60mins"
-                    >
-                      45-60 minutes
-                    </option>
-                    <option
-                      className="bookright__dropdownOptions"
-                      value="over-60mins"
-                    >
-                      over 60 minutes
-                    </option>
-                    <option className="bookright__dropdownOptions" value="none">
-                      no meditation today
-                    </option>
-                  </select>
-                </div>
-                <NavLink to="/submitted" className="bookright__btnHyperlink">
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="5min"
+                      >
+                        5 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="10-15mins"
+                      >
+                        10-15 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="15-30mins"
+                      >
+                        15-30 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="30-45mins"
+                      >
+                        30-45 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="45-60mins"
+                      >
+                        45-60 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="over-60mins"
+                      >
+                        over 60 minutes
+                      </option>
+                      <option
+                        className="bookright__dropdownOptions"
+                        value="none"
+                      >
+                        no meditation today
+                      </option>
+                    </select>
+                  </div>
+                  {/* <NavLink to="/submitted" className="bookright__btnHyperlink"> */}
                   <button className="bookright__submitButton">Submit</button>
-                </NavLink>
-              </div>
-            </form>
+                  {/* </NavLink> */}
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

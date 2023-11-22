@@ -4,12 +4,12 @@ import submitImage from "../../assets/image/submitted stamp.png";
 
 // import "react-datepicker/dist/react-datepicker.css";
 // import dayjs from "dayjs";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 function Submitted() {
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
   const [quotes, setQuotes] = useState([]);
   const [selectedQuote, setSelectedQuote] = useState([]);
 
@@ -31,7 +31,7 @@ function Submitted() {
 
   return (
     <div className="book__page">
-      <div className="book__heading">Hi, Amanda!</div>
+      <div className="book__heading">Submitted</div>
       <div className="book__cover">
         <div className="book__paper">
           <div className="book__leftright">

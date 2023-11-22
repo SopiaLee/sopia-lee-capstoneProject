@@ -11,20 +11,10 @@ function ViewEntries() {
   const [forms, setForms] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [selectedForm, setSelectedForm] = useState({});
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
   const [quotes, setQuotes] = useState([]);
   const [selectedQuote, setSelectedQuote] = useState([]);
-
-  useEffect(() => {
-    const filteredForms = forms?.find((form) => {
-      //   console.log("startdate", dayjs(new Date(startDate)).format("MM/DD/YYYY"));
-      //   console.log("form date", form.timestamp);
-      return dayjs(new Date(startDate)).format("MM/DD/YYYY") === form.timestamp;
-    });
-
-    filteredForms && navigate(`/viewentries/${filteredForms.id}`);
-  }, [startDate]);
 
   useEffect(() => {
     const getForms = async () => {
@@ -37,22 +27,18 @@ function ViewEntries() {
   }, []);
 
   useEffect(() => {
-    let formId = "a91a5827-9d90-47db-8a1e-10ac9ff3a59c";
-    if (params.id) {
-      formId = params.id;
-    }
-
+    let formDate = dayjs(startDate).format("MM-DD-YYYY");
     const getSelectedForm = async () => {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/forms/${formId}`
+        `${process.env.REACT_APP_API_URL}/forms/${formDate}`
       );
       setSelectedForm(response.data);
+      console.log("selected form", response.data);
     };
     getSelectedForm();
-  }, [params.id]);
+  }, [startDate]);
 
   useEffect(() => {
-    console.log(quotes);
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setSelectedQuote(quotes[randomIndex]);
   }, [quotes]);
@@ -60,21 +46,26 @@ function ViewEntries() {
   useEffect(() => {
     const getQuotes = async () => {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/quotes`
+        `${process.env.REACT_APP_API_URL}/quotes`,
+        {
+          params: {
+            date: dayjs(startDate).format("MM-DD-YYYY"),
+          },
+        }
       );
       setQuotes(response.data);
     };
     getQuotes();
-  }, []);
+  }, [startDate]);
 
   return (
     <>
       <div className="book__page">
         <DatePicker
+          className="book__datepicker"
           selected={startDate}
           onChange={(date) => setStartDate(date)}
         />
-        {/* {new Date(startDate).toLocaleDateString()} */}
         <div className="book__cover">
           <div className="book__paper">
             <div className="book__leftright">
@@ -86,8 +77,6 @@ function ViewEntries() {
                     className="bookleft__iframe"
                     width="100%"
                     height="166"
-                    scrolling="no"
-                    frameborder="no"
                     allow="autoplay"
                     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
                   ></iframe>
@@ -101,34 +90,34 @@ function ViewEntries() {
                       <div className="bookright__date">
                         {selectedForm.timestamp}
                       </div>
-                      <div className="bookright__question">
+                      <div className="bookright__questionview">
                         I am greatful for ...
                       </div>
 
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         1. {selectedForm.input1}
                       </div>
 
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         2. {selectedForm.input2}
                       </div>
 
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         3. {selectedForm.input3}
                       </div>
 
-                      <div className="bookright__question">
+                      <div className="bookright__questionview">
                         My goal for today is ...
                       </div>
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         1. {selectedForm.input4}
                       </div>
 
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         2. {selectedForm.input5}
                       </div>
 
-                      <div className="bookright__input">
+                      <div className="bookright__inputview">
                         3. {selectedForm.input6}
                       </div>
 
@@ -140,9 +129,6 @@ function ViewEntries() {
                       </div>
                     </>
                   )}
-                  {/* </>
-                      );
-                    })} */}
                 </div>
               </form>
             </div>
