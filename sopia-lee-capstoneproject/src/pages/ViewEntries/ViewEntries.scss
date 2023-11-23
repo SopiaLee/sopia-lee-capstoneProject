@@ -17,7 +17,6 @@
 .react-datepicker__header {
     background-color: white;
 }
-
 .bookright {
     &__dropdownTitle {
         font-weight: 600;
@@ -36,7 +35,6 @@
         margin-bottom: 16px;
     }
 }
-
 .book {
     &__datepicker {
             padding: 4px 10px 4px 10px;
@@ -44,15 +42,18 @@
             font-weight: 600;
             border: 3px solid #C4C1A4;
             border-radius:4px;
-        
+            margin-top: 36px;
+    }
+    &__binder1 {
+        position: relative;
+        right: -63vw;
+        background-color: #FFC6AC;
+        padding: 10px 5px 10px 5px;
+        width: 100px;
+        bottom: -8px;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 15px;
     }
 }
-
-// .input[type="text" i]  {
-//     border: 3px solid #FFC6AC;
-//     border-radius: 4px;
-//     height: 24px;
-//     padding: 4px 10px 4px 10px;
-//     font-size: 20px;
-//     font-weight: 500;
-// }

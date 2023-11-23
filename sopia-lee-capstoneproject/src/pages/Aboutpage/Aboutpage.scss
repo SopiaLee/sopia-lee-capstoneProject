@@ -1,40 +1,71 @@
-// .book {
-//     &__right2 {
-//     float: right;
-//         height: 100%;
-//         border-left: 1px solid #C4C1A4;
-//         padding-left: 24px;
-//         position: relative;
-//     }
-//     &__left2 {
-//         width: auto;
-//     }
-// }
 
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.messagebox {
+    z-index: -2;
 
-//////////////////////////////////////
-.examplelogo {
-    width: 100px;
+    &__content {
+        font-size: 20px;
+        font-weight: 500;
+        background-color: white;
+        border-radius: 4px;
+        padding: 20px;
+        margin-left: 120px;
+        position: absolute;
+        top: 280px;
+    }
+    }
+.brandDes {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: lora;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+
+    &__bold {
+        font-weight: 600;
+    }
+}
+.projectDetialsButton {
+    background-color: #FFC6AC;
+    text-decoration: none;
+    margin-left: 24px;
+    perspective: 1000px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px;
+    font-family: lora;
+
+}
+.brandlogo {
+    width: 200px;
     position: relative;
     z-index: -1;
+    margin-top: 36px;
+    margin-left: 24px;
 }
 .books {
     display:flex;
     align-items: center;
     cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
     perspective: 1000px;
+    position: relative;
+    right: -560px;
 }
 .books--active .covers {
     transform:rotateX(10deg) rotateY(-180deg);
 }
-
 .books--active .pages {
     transform:rotateX(10deg) rotateY(-180deg);
     z-index: 2;
 }
-
 .covers {
     z-index: 1;
     transition: all 3s;
@@ -42,30 +73,39 @@
 .back-covers {
     z-index: -2;
 }
-
 .covers,
 .back-covers {
-    height: 300px;
-    width: 260px;
-    background: blueviolet;
+    width: 450px;
+    height: 570px;
+    background: #C4C1A4;
     border-radius: 2px 20px 20px 2px;
     position: absolute;
-    box-shadow: 1px 1px 10px gray;
+    // box-shadow: 1px 1px 10px gray;
+    box-shadow: #353755;
     transform: rotateX(10deg);
     transform-origin: center left;
 }
-.pages,
-.last-pages {
-    height: 280px;
-    width: 250px;
+.pages {
+    width: 430px;
+    height: 540px;
     background: white;
     position:absolute;
     border-radius: 2px 10px 10px 2px;
-    transform: rotateX(20deg);
+    transform: rotateX(10deg);
     transform-origin: center left;
     z-index: -1;
 }
-
+.last-pages {
+    width: 430px;
+    height: 540px;
+    background: white;
+    position:absolute;
+    border-radius: 2px 10px 10px 2px;
+    transform: rotateX(10deg);
+    transform-origin: center left;
+    z-index: -1;
+    border-left: #C4C1A4 1px solid;
+}
 .pages:nth-child(2){
     transition-duration: 3s;
 }

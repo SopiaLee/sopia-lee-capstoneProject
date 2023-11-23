@@ -12,32 +12,59 @@ function Aboutpage() {
 
   return (
     <>
-      {/* <div className="book__page">
-        <div className="book__heading">About</div>
-        <div className="book__cover">
-          <div className="book__paper">
-            <div className="book__leftright">
-              <div className="book__left2"></div>
-              <div className="book__right2"></div>
-            </div>
+      <div className="wrap">
+        <div className="messagebox__content">
+          Click on the notebook to open & close!
+        </div>
+        <div
+          className={isTurned ? "books books--active" : "books"}
+          onClick={handleOpenClick}
+        >
+          <div className="covers">
+            <div className="covers__box"></div>
           </div>
+          <div className="pages"></div>
+          <div className="pages"></div>
+          <div className="pages"></div>
+          <div className="pages"></div>
+          <div className="pages"></div>
+          <div className="last-pages">
+            <img src={logo} className="brandlogo"></img>
+            <div className="brandDes">
+              Introducing <span className="brandDes__bold">BlissfulNotes</span>,
+              a transformative online platform designed to seamlessly integrate{" "}
+              <span className="brandDes__bold">gratitude journaling</span>,{" "}
+              <span className="brandDes__bold">daily goal settings</span>, and{" "}
+              <span className="brandDes__bold">meditation</span> into your daily
+              routine.
+              <br />
+              <br />
+              Crafted with your busy lifestyle in mind, our user-friendly
+              interface empowers you to complete these essential tasks in just
+              10-15 minutes, making self-reflection and personal growth
+              effortlessly achievable. Immerse yourself in a blissful experience
+              that not only <span className="brandDes__bold">
+                saves time
+              </span>{" "}
+              but also{" "}
+              <span className="brandDes__bold">fosters consistency</span> in
+              nurturing your well-being.
+              <br />
+              <br />
+              Embrace the power of reflection and mindfulness with
+              BlissfulNotes, your dedicated companion on the journey to a more
+              balanced and intentional life.
+            </div>
+            <a
+              href="https://sopias-portfolio.webflow.io/work/project-4"
+              target="_blank"
+              className="projectDetialsButton"
+            >
+              More about project details
+            </a>
+          </div>
+          <div className="back-covers"></div>
         </div>
-      </div> */}
-      {/* //////// */}
-      <div
-        className={isTurned ? "books books--active" : "books"}
-        onClick={handleOpenClick}
-      >
-        <div className="covers"></div>
-        <div className="pages"></div>
-        <div className="pages"></div>
-        <div className="pages"></div>
-        <div className="pages"></div>
-        <div className="pages"></div>
-        <div className="last-pages">
-          <img src={logo} className="examplelogo"></img>
-        </div>
-        <div className="back-covers"></div>
       </div>
     </>
   );
