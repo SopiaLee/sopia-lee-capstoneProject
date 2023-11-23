@@ -1,12 +1,100 @@
-.book {
-    &__right2 {
-    float: right;
-        height: 100%;
-        border-left: 1px solid #C4C1A4;
-        padding-left: 24px;
-        position: relative;
-    }
-    &__left2 {
-        width: auto;
-    }
+// .book {
+//     &__right2 {
+//     float: right;
+//         height: 100%;
+//         border-left: 1px solid #C4C1A4;
+//         padding-left: 24px;
+//         position: relative;
+//     }
+//     &__left2 {
+//         width: auto;
+//     }
+// }
+
+
+//////////////////////////////////////
+.examplelogo {
+    width: 100px;
+    position: relative;
+    z-index: -1;
 }
+.books {
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    perspective: 1000px;
+}
+.books--active .covers {
+    transform:rotateX(10deg) rotateY(-180deg);
+}
+
+.books--active .pages {
+    transform:rotateX(10deg) rotateY(-180deg);
+    z-index: 2;
+}
+
+.covers {
+    z-index: 1;
+    transition: all 3s;
+}
+.back-covers {
+    z-index: -2;
+}
+
+.covers,
+.back-covers {
+    height: 300px;
+    width: 260px;
+    background: blueviolet;
+    border-radius: 2px 20px 20px 2px;
+    position: absolute;
+    box-shadow: 1px 1px 10px gray;
+    transform: rotateX(10deg);
+    transform-origin: center left;
+}
+.pages,
+.last-pages {
+    height: 280px;
+    width: 250px;
+    background: white;
+    position:absolute;
+    border-radius: 2px 10px 10px 2px;
+    transform: rotateX(20deg);
+    transform-origin: center left;
+    z-index: -1;
+}
+
+.pages:nth-child(2){
+    transition-duration: 3s;
+}
+.pages:nth-child(3){
+    transition-duration: 2.6s;
+}
+.pages:nth-child(4){
+    transition-duration: 2.2s;
+}
+.pages:nth-child(5){
+    transition-duration: 1.8s;
+}
+.pages:nth-child(6){
+    transition-duration: 1.4s;
+}
+
+.books--active .pages:nth-child(2) {
+    transition-duration: 6s;
+}
+.books--active .pages:nth-child(3) {
+    transition-duration: 5.6s;
+}
+.books--active .pages:nth-child(4) {
+    transition-duration: 5.2s;
+}
+.books--active .pages:nth-child(5) {
+    transition-duration: 4.8s;
+}
+.books--active .pages:nth-child(6) {
+    transition-duration: 4.4s;
+}
+
