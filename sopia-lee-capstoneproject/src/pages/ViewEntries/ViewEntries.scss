@@ -34,6 +34,14 @@
         font-weight: 600;
         margin-bottom: 16px;
     }
+    &__heartIcon {
+        width: 30px;
+        margin-left: 24px;
+    }
+    &__top {
+        display: flex;
+        flex-direction: row;
+    }
 }
 .book {
     &__datepicker {

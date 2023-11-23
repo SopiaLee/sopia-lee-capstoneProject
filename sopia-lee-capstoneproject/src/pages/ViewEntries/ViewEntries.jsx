@@ -6,6 +6,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import dayjs from "dayjs";
+import heartIcon from "../../assets/icons/heartIcon.svg";
 
 function ViewEntries() {
   const [forms, setForms] = useState([]);
@@ -98,8 +99,15 @@ function ViewEntries() {
                   <div className="book__right">
                     {selectedForm.id && (
                       <>
-                        <div className="bookright__date">
-                          {selectedForm.timestamp}
+                        <div className="bookright__top">
+                          <div className="bookright__date">
+                            {selectedForm.timestamp}
+                          </div>
+                          <img
+                            className="bookright__heartIcon"
+                            src={heartIcon}
+                            alt="heart icon"
+                          ></img>
                         </div>
                         <div className="bookright__questionview">
                           I am greatful for ...
