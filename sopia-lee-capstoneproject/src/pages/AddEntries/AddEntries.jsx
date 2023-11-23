@@ -1,10 +1,7 @@
 import "./AddEntries.scss";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-
 import "react-datepicker/dist/react-datepicker.css";
 import dayjs from "dayjs";
-
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 

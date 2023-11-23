@@ -1,15 +1,10 @@
 import "./Submitted.scss";
 import { useEffect, useState } from "react";
 import submitImage from "../../assets/image/submitted stamp.png";
-
-// import "react-datepicker/dist/react-datepicker.css";
-// import dayjs from "dayjs";
-// import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 function Submitted() {
-  //   const navigate = useNavigate();
   const [quotes, setQuotes] = useState([]);
   const [selectedQuote, setSelectedQuote] = useState([]);
 

@@ -38,7 +38,6 @@ function ViewEntries() {
       } catch (err) {
         console.log(err);
         alert("ALERT: No entries on this date. Choose another date.");
-        // navigate("/notfound");
       }
     };
     getSelectedForm();
@@ -72,71 +71,78 @@ function ViewEntries() {
           selected={startDate}
           onChange={(date) => setStartDate(date)}
         />
-        <div className="book__cover">
-          <div className="book__paper">
-            <div className="book__leftright">
-              <div className="book__left">
-                <div className="bookleft__quotes">"{selectedQuote?.body}"</div>
-                <div className="bookleft__name">-{selectedQuote?.author}-</div>
-                <div className="bookleft__musicPlayer">
-                  <iframe
-                    className="bookleft__iframe"
-                    width="100%"
-                    height="166"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                  ></iframe>
+        <div className="book__pagewrap">
+          <div className="book__binder1">Highlights</div>
+          <div className="book__cover">
+            <div className="book__paper">
+              <div className="book__leftright">
+                <div className="book__left">
+                  <div className="bookleft__quotes">
+                    "{selectedQuote?.body}"
+                  </div>
+                  <div className="bookleft__name">
+                    -{selectedQuote?.author}-
+                  </div>
+                  <div className="bookleft__musicPlayer">
+                    <iframe
+                      className="bookleft__iframe"
+                      width="100%"
+                      height="166"
+                      allow="autoplay"
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569838168&color=%23ffc6ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    ></iframe>
+                  </div>
                 </div>
-              </div>
 
-              <form className="book__form">
-                <div className="book__right">
-                  {selectedForm.id && (
-                    <>
-                      <div className="bookright__date">
-                        {selectedForm.timestamp}
-                      </div>
-                      <div className="bookright__questionview">
-                        I am greatful for ...
-                      </div>
-
-                      <div className="bookright__inputview">
-                        1. {selectedForm.input1}
-                      </div>
-
-                      <div className="bookright__inputview">
-                        2. {selectedForm.input2}
-                      </div>
-
-                      <div className="bookright__inputview">
-                        3. {selectedForm.input3}
-                      </div>
-
-                      <div className="bookright__questionview">
-                        My goal for today is ...
-                      </div>
-                      <div className="bookright__inputview">
-                        1. {selectedForm.input4}
-                      </div>
-
-                      <div className="bookright__inputview">
-                        2. {selectedForm.input5}
-                      </div>
-
-                      <div className="bookright__inputview">
-                        3. {selectedForm.input6}
-                      </div>
-
-                      <div className="bookright__dropdownTitle">
-                        Meditation Time
-                        <div className="bookright__dropdownResult">
-                          {selectedForm.meditationTime}
+                <form className="book__form">
+                  <div className="book__right">
+                    {selectedForm.id && (
+                      <>
+                        <div className="bookright__date">
+                          {selectedForm.timestamp}
                         </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </form>
+                        <div className="bookright__questionview">
+                          I am greatful for ...
+                        </div>
+
+                        <div className="bookright__inputview">
+                          1. {selectedForm.input1}
+                        </div>
+
+                        <div className="bookright__inputview">
+                          2. {selectedForm.input2}
+                        </div>
+
+                        <div className="bookright__inputview">
+                          3. {selectedForm.input3}
+                        </div>
+
+                        <div className="bookright__questionview">
+                          My goal for today is ...
+                        </div>
+                        <div className="bookright__inputview">
+                          1. {selectedForm.input4}
+                        </div>
+
+                        <div className="bookright__inputview">
+                          2. {selectedForm.input5}
+                        </div>
+
+                        <div className="bookright__inputview">
+                          3. {selectedForm.input6}
+                        </div>
+
+                        <div className="bookright__dropdownTitle">
+                          Meditation Time
+                          <div className="bookright__dropdownResult">
+                            {selectedForm.meditationTime}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
