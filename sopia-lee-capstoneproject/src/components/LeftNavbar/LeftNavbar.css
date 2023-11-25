@@ -1,0 +1,36 @@
+:visited {
+  color: inherit;
+}
+
+.leftNavbar {
+  background-color: #FFC6AC;
+  width: 267px;
+  height: 100vh;
+}
+.leftNavbar__settingsicon {
+  position: relative;
+  bottom: -55vh;
+  margin-bottom: 16px;
+}
+.leftNavbar__option {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px;
+  max-width: 267px;
+  text-align: center;
+}
+.leftNavbar__option.active div {
+  color: #000000;
+  background-color: #FFF6DC;
+  text-decoration: none;
+}
+.leftNavbar__logo {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 24px;
+}/*# sourceMappingURL=LeftNavbar.css.map */

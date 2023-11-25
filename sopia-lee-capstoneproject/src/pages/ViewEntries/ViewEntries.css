@@ -1,0 +1,70 @@
+.react-datepicker-wrapper {
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker {
+  border: 3px solid #C4C1A4;
+}
+
+.react-datepicker__header {
+  border-bottom: 3px solid #C4C1A4;
+}
+
+.react-datepicker__day--selected {
+  background-color: #FFC6AC;
+}
+
+.react-datepicker__header {
+  background-color: white;
+}
+
+.bookright__dropdownTitle {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.bookright__dropdownResult {
+  font-weight: normal;
+  margin-top: 16px;
+}
+.bookright__inputview {
+  border-bottom: none;
+  padding-bottom: 16px;
+}
+.bookright__questionview {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.bookright__heartIcon {
+  width: 30px;
+  margin-left: 24px;
+}
+.bookright__top {
+  display: flex;
+  flex-direction: row;
+}
+
+.book__datepicker {
+  padding: 4px 10px 4px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 3px solid #C4C1A4;
+  border-radius: 4px;
+  margin-top: 36px;
+}
+.book__binder1 {
+  position: relative;
+  right: -63vw;
+  background-color: #FFC6AC;
+  padding: 10px 5px 10px 5px;
+  width: 100px;
+  bottom: -8px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+}/*# sourceMappingURL=ViewEntries.css.map */

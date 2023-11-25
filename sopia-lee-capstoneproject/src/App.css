@@ -1,0 +1,10 @@
+.App {
+  background-color: #FFF6DC;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  font-family: Montserrat;
+}/*# sourceMappingURL=App.css.map */
